@@ -49,6 +49,12 @@ function appendWeather(data) {
   const weatherIconCode = data.weather[0].icon;
   const weatherIconPath = iconMappings[weatherIconCode] || "default.svg";
   const isDarkMode = document.body.classList.contains("dark-mode");
+  const windSpeed = data.wind.speed;
+  const humidity = data.main.humidity;
+  const sunriseTime = new Date(data.sys.sunrise * 1000).toLocaleTimeString();
+  const sunsetTime = new Date(data.sys.sunset * 1000).toLocaleTimeString();
+  const uvIndex = data.uv;
+
   const weatherInfoHTML = `
     <div class="weather-card ${isDarkMode ? "dark-mode" : ""}">
       <img src="./assets/images/icons/${weatherIconPath}" alt="${
@@ -56,18 +62,23 @@ function appendWeather(data) {
   }" />
       <p class="temperature">${Math.round(data.main.temp)}°C</p>
       <p class="description">${data.weather[0].description}</p>
+      <p class="humidity">Humidity: ${humidity}%</p>
+      <p class="sunrise">Sunrise: ${sunriseTime}</p> 
+      <p class="sunset">Sunset: ${sunsetTime}</p> 
+      <p class="wind-speed">Wind Speed: ${windSpeed} m/s</p>
       <p class="date">${getFormattedDate()}</p>
       <p class="location">${data.name}, ${data.sys.country}</p>
     </div>
   `;
-  weatherInfoContainer.insertAdjacentHTML("beforeend", weatherInfoHTML);
+
+  weatherInfoContainer.insertAdjacentHTML("afterbegin", weatherInfoHTML);
   checkRowChange();
   weatherInfoContainer.classList.add("show-cards");
   const cards = document.querySelectorAll(".weather-card");
   setTimeout(() => {
-    cards[cards.length - 1].style.opacity = 1;
-    cards[cards.length - 1].style.transform = "translateY(0)";
-  }, 100 * cards.length);
+    cards[0].style.opacity = 1;
+    cards[0].style.transform = "translateY(0)";
+  }, 100);
 }
 
 function getFormattedDate() {
