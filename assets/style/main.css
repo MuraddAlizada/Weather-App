@@ -1,0 +1,234 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    background: linear-gradient(to right, #87CEEB, #007bff);
+}
+
+.top-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 10px;
+    color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.content {
+    max-width: 500px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #007bff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+    color: white;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.search-input {
+    position: relative;
+}
+
+#city {
+    width: 300px;
+    padding: 10px 30px 10px 40px;
+    margin-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+button.btn-primary {
+    background-color: rgb(0, 165, 255);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color:rgb(3, 146, 212);
+}
+
+#weather-info {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#weather-info img {
+    max-width: 200px;
+    margin-bottom: 10px;
+}
+
+#weather-info p {
+    margin: 0;
+}
+
+p {
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.icon {
+    position: absolute;
+    top: 45%; 
+    left: 10px;
+    transform: translateY(-50%);
+    color: #007bff;
+}
+
+.weather-card {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+    gap: 3px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    width: calc(25% - 20px); 
+    margin-bottom: 20px;
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.weather-card img {
+    filter: brightness(0) invert(1);
+}
+
+.weather-card:last-child {
+    margin-right: 0;
+}
+
+.weather-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly; 
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.weather-cards-container.show-cards .weather-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.weather-cards-container.change-row.show-cards .weather-card {
+    clear: none;
+}
+
+.temperature , .location {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.description , .date {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.toggle-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.toggle-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #ccc;
+    border-radius: 34px;
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    transition: background 0.3s ease-in-out;
+    width: 100%;
+}
+
+.slider:before {
+    background-color: #fff;
+    border-radius: 50%;
+    content: "";
+    height: 26px;
+    left: 4px;
+    position: absolute;
+    top: 4px;
+    transition: transform 0.3s ease-in-out;
+    width: 26px;
+}
+
+input:checked + .slider {
+    background-color: rgb(21, 255, 0);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.dark-mode-controls {
+    display: flex;
+    align-items: center;
+}
+
+.dark-mode-text {
+    color: #fff;
+    margin-right: 10px;
+}
+
+body.dark-mode {
+    background: linear-gradient(to left, #333, #000);
+}
+
+body.dark-mode .top-menu {
+    background-color: #333;
+}
+
+body.dark-mode button {
+    background-color: #666666;
+} 
+
+body.dark-mode button:hover {
+    background-color: #4f4f4f;
+}
+
+body.dark-mode .weather-card {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode .icon {
+    color: #333;
+}
+
+body.dark-mode .content {
+    background-color: #333;
+    color: #fff;
+}

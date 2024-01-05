@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/main.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="top-menu">
+      <div class="logo"><i class="fas fa-sun"></i> Weather App</div>
+      <div class="dark-mode-controls">
+        <div class="dark-mode-text">Dark Mode:</div>
+        <label class="toggle-switch" for="darkModeToggle">
+          <input
+            type="checkbox"
+            id="darkModeToggle"
+            onclick="toggleDarkMode()"
+          />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="search-container">
+        <label for="city">Search destinations by city or country.</label>
+        <div class="search-input">
+          <i class="fas fa-search icon"></i>
+          <input
+            type="text"
+            id="city"
+            placeholder="Input the city or country name:"
+          />
+        </div>
+        <button class="btn btn-primary" onclick="getWeather()">Search</button>
+      </div>
+    </div>
+
+    <div id="weather-info" class="weather-cards-container"></div>
+
+    <script src="./assets/index.js"></script>
+  </body>
+</html>
